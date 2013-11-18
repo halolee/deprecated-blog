@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: blog | My Octopress Blog]]></title>
-  <link href="http://halolee.github.io/blog/categories/blog/atom.xml" rel="self"/>
+  <title><![CDATA[Category: productivity | My Octopress Blog]]></title>
+  <link href="http://halolee.github.io/blog/categories/productivity/atom.xml" rel="self"/>
   <link href="http://halolee.github.io/"/>
   <updated>2013-11-18T21:48:53+11:00</updated>
   <id>http://halolee.github.io/</id>
@@ -64,15 +64,6 @@ bundle exec rake deploy
 <p><strong>Call Alfred &ndash;> Shot cut to create post &ndash;> open post &ndash;> Short cut to deploy</strong></p>
 
 <p>Hope this post makes your life easier :D</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First Octopress post on github]]></title>
-    <link href="http://halolee.github.io/blog/2013/11/17/first-octopress-post-on-github/"/>
-    <updated>2013-11-17T15:16:00+11:00</updated>
-    <id>http://halolee.github.io/blog/2013/11/17/first-octopress-post-on-github</id>
-    <content type="html"><![CDATA[
 ]]></content>
   </entry>
   

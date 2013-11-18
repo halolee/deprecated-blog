@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://halolee.github.io/atom.xml" rel="self"/>
   <link href="http://halolee.github.io/"/>
-  <updated>2013-11-17T17:59:31+11:00</updated>
+  <updated>2013-11-18T21:48:53+11:00</updated>
   <id>http://halolee.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Alfred to Blog Testing]]></title>
+    <link href="http://halolee.github.io/blog/2013/11/18/alfred-to-blog-testing/"/>
+    <updated>2013-11-18T21:11:00+11:00</updated>
+    <id>http://halolee.github.io/blog/2013/11/18/alfred-to-blog-testing</id>
+    <content type="html"><![CDATA[<p>To create a blog manually seems like a have a bit of tasks to accomplish.</p>
+
+<ol>
+<li><p>First need to navigate to the Git repository</p></li>
+<li><p>Second need to use rake new_post to create a new post</p></li>
+<li><p>Then need to navigate to the source/_posts/ folder and locate the newly generated post</p></li>
+<li><p>Then need to open it with either mou or other software to edit it.</p></li>
+</ol>
+
+
+<p>If only to do it once is OK. But the above steps will become a daily routain for user who want to really to blog everyday.</p>
+
+<p>Alfred comes to the rescure.</p>
+
+<p>With a powerpack activated Alfred, just goes to the Workflows and then create a new</p>
+
+<pre><code>Template -&gt; Essential -&gt; Keyword To Terminal Command
+</code></pre>
+
+<p>Then put the following to</p>
+
+<pre><code>cd Sites/repository/
+bundle exec rake new_post["{query}"]
+cd source/_posts/
+</code></pre>
+
+<p>And assign a short cut to it. Please note the <strong>Sites/repository/</strong> need to be changed to the location of the repository.</p>
+
+<p>After that just click on the lasted created blog and start blogging.</p>
+
+<p>Thought about to automatically open the blog through pip. Unfortunately I am quite new to the termianl programming, so if anywant to contribute, feel free to put a comment below.</p>
+
+<p>After the editing, just put another Alfred shot cut to fast deploy</p>
+
+<pre><code>cd Sites/repository/
+bundle exec rake generate
+bundle exec rake deploy
+</code></pre>
+
+<p>Thats pretty much it.</p>
+
+<p>So after today, the daily routin would be come</p>
+
+<p><strong>Call Alfred &ndash;> Shot cut to create post &ndash;> open post &ndash;> Short cut to deploy</strong></p>
+
+<p>Hope this post makes your life easier :D</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Testing Markup Language]]></title>
@@ -45,7 +99,7 @@ Like, seriously, a <em>LOT</em> of text</strong></p>
 
 <h4>Links and Email</h4>
 
-<p>An email <a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#x65;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#x40;&#101;&#120;&#x61;&#109;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#101;&#120;&#x61;&#109;&#112;&#108;&#101;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#111;&#109;</a> link.</p>
+<p>An email <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#101;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;">&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#x40;&#x65;&#120;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a> link.</p>
 
 <p>Simple inline link <a href="http://chenluois.com">http://chenluois.com</a>, another inline link <a href="http://smallerapp.com">Smaller</a>, one more inline link with title <a href="http://resizesafari.com" title="a Safari extension">Resize</a>.</p>
 
