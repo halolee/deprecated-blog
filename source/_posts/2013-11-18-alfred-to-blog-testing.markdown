@@ -36,7 +36,13 @@ After that just click on the lasted created blog and start blogging.
 
 Thought about to automatically open the blog through pip. Unfortunately I am quite new to the termianl programming, so if anywant to contribute, feel free to put a comment below.
 
-Push the code to github, so nothing is lost
+Deploy, so people can see it
+	
+	cd Sites/repository/
+	bundle exec rake generate
+	bundle exec rake deploy
+
+And lastly, push the code to github, so nothing is lost
 
 	cd Sites/repository/
 	git add .
@@ -44,11 +50,7 @@ Push the code to github, so nothing is lost
 	git push origin source
 	
 	
-And deploy, so people can see it
-	
-	cd Sites/repository/
-	bundle exec rake generate
-	bundle exec rake deploy
+
 	
 Thats pretty much it. 
 
