@@ -39,8 +39,13 @@ Thought about to automatically open the blog through pip. Unfortunately I am qui
 After the editing, just put another Alfred shot cut to fast deploy
 
 	cd Sites/repository/
-	bundle exec rake generate
-	bundle exec rake deploy
+	git add .
+	git commit -m "{query}"
+	git push origion source
+	
+~~bundle exec rake generate~~
+
+~~bundle exec rake deploy~~
 	
 Thats pretty much it. 
 
