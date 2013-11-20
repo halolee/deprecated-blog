@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Alfred | My Octopress Blog]]></title>
+  <title><![CDATA[Category: Alfred | Halo Lee's Blog]]></title>
   <link href="http://halolee.github.io/blog/categories/alfred/atom.xml" rel="self"/>
   <link href="http://halolee.github.io/"/>
-  <updated>2013-11-20T22:25:56+11:00</updated>
+  <updated>2013-11-20T23:27:27+11:00</updated>
   <id>http://halolee.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Halo Lee]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: tool | My Octopress Blog]]></title>
+  <title><![CDATA[Category: tool | Halo Lee's Blog]]></title>
   <link href="http://halolee.github.io/blog/categories/tool/atom.xml" rel="self"/>
   <link href="http://halolee.github.io/"/>
-  <updated>2013-11-20T22:25:56+11:00</updated>
+  <updated>2013-11-20T23:27:27+11:00</updated>
   <id>http://halolee.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Halo Lee]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -45,7 +45,7 @@ Like, seriously, a <em>LOT</em> of text</strong></p>
 
 <h4>Links and Email</h4>
 
-<p>An email <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#64;&#x65;&#120;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#109;">&#x65;&#x78;&#97;&#x6d;&#x70;&#x6c;&#101;&#x40;&#x65;&#120;&#x61;&#109;&#x70;&#x6c;&#101;&#46;&#x63;&#x6f;&#109;</a> link.</p>
+<p>An email <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;">&#101;&#120;&#97;&#109;&#112;&#x6c;&#101;&#x40;&#101;&#120;&#97;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#x6f;&#x6d;</a> link.</p>
 
 <p>Simple inline link <a href="http://chenluois.com">http://chenluois.com</a>, another inline link <a href="http://smallerapp.com">Smaller</a>, one more inline link with title <a href="http://resizesafari.com" title="a Safari extension">Resize</a>.</p>
 

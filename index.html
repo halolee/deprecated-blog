@@ -5,8 +5,8 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>Halo Lee's Blog</title>
+  <meta name="author" content="Halo Lee">
 
   
   <meta name="description" content="Seems like the Alfred short cut has some issue now. Site is out of sync at this moment. It turns out that I missed the bundle exec rake deploy As the &hellip;">
@@ -21,7 +21,7 @@
   <link rel="canonical" href="http://halolee.github.io">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="Halo Lee's Blog" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -31,14 +31,26 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
   
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-34033175-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
 
 </head>
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">Halo Lee's Blog</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>Mobile apps, Web and everything in between</h2>
   
 </hgroup>
 
@@ -446,7 +458,7 @@ Like, seriously, a <em>LOT</em> of text</strong></p>
 
 <h4>Links and Email</h4>
 
-<p>An email <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#x65;&#120;&#x61;&#109;&#112;&#108;&#101;&#64;&#101;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;">&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;</a> link.</p>
+<p>An email <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#64;&#101;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#109;">&#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#64;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#x63;&#x6f;&#109;</a> link.</p>
 
 <p>Simple inline link <a href="http://chenluois.com">http://chenluois.com</a>, another inline link <a href="http://smallerapp.com">Smaller</a>, one more inline link with title <a href="http://resizesafari.com" title="a Safari extension">Resize</a>.</p>
 
@@ -819,6 +831,35 @@ Above line ended with 2 spaces.</p>
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/halolee">@halolee</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'halolee',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
 
 
 
@@ -829,12 +870,25 @@ Above line ended with 2 spaces.</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Your Name -
+  Copyright &copy; 2013 - Halo Lee -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'halolee';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
