@@ -9,8 +9,7 @@
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="To create a blog manually seems like a have a bit of tasks to accomplish. First need to navigate to the Git repository
-Second need to use rake &hellip;">
+  <meta name="description" content="Seems like the Alfred short cut has some issue now. Site is out of sync at this moment. It turns out that I missed the bundle exec rake deploy As the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +71,242 @@ Second need to use rake &hellip;">
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2013/11/20/site-out-of-sync/">Site Out of Sync</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-20T22:22:00+11:00" pubdate data-updated="true">Nov 20<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Seems like the Alfred short cut has some issue now. Site is out of sync at this moment.</p>
+
+<p>It turns out that I missed the</p>
+
+<pre><code>bundle exec rake deploy
+</code></pre>
+
+<p>As the site need to be generate to the _deploy folder, then it can be pushed to the blog.</p>
+
+<p>Its good that everything has fixed now.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/20/javascrip-ios-bridge/">Javascrip Ios Bridge</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-20T19:46:00+11:00" pubdate data-updated="true">Nov 20<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>Background</h1>
+
+<p>For the most of the time, the UIWebview in iOS native code act as a browser and handle the communication of webpage.</p>
+
+<p>In order for a deep level communcate between a webpage and iOS native application, i.e. to invoke iOS native functionality by javascript function, then we need to build a javascrip-iOS bridge.</p>
+
+<p>Below is a simplified and minified iOS-JS bridge.</p>
+
+<h1>Javascript</h1>
+
+<h2>NativeBridge.js</h2>
+
+<pre><code>var NativeBridge = {
+  callbacksCount : 1,
+  callbacks : {},
+
+  call : function call(callbackId, callback) {
+
+    NativeBridge.callbacks[callbackId] = callback;
+
+    var iframe = document.createElement("IFRAME");
+    iframe.setAttribute("src", "sp://claimID/" + callbackId);
+    document.documentElement.appendChild(iframe);
+    iframe.parentNode.removeChild(iframe);
+    iframe = null;
+
+    }
+
+};
+</code></pre>
+
+<p>This is the essential part. By calling this script, the webpage can call back on the function on the iOS side.</p>
+
+<h2>Webview-script.js</h2>
+
+<pre><code>function passBackClaimId(claimID){
+
+    NativeBridge.call(12341234123123, function () {});
+
+};
+</code></pre>
+
+<p>It only contain a function call to initiate the function defined in the nativeBridge.js.</p>
+
+<h2>webview-document.html</h2>
+
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;Webview document&lt;/title&gt;
+          &lt;script type="text/javascript" src="NativeBridge.js"&gt;&lt;/script&gt;
+          &lt;script type="text/javascript" src="webview-script.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+      &lt;h4&gt;UIWebView HTML document&lt;/h4&gt;
+
+        &lt;form&gt;
+          &lt;input type=button value="Submit" onClick= passBackClaimId() &gt;
+          &lt;input type=button value="Show query" onClick="alert('Query string: '+self.location.search)"&gt;
+
+      &lt;/form&gt;
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>By clicking on the Submit button, it will invoke the javascript-iOS call to pass the claimID back to iOS application.</p>
+
+<p>Another button is designed to catch the parameter passed in. That part is still under construction. Current function is if the web page is accessed through a query string. i.e. compare the following url</p>
+
+<pre><code>http://localhost:8888/webview-document.html
+http://localhost:8888/webview-document.html?itemName=LEDTV&amp;itemPrice=3000
+</code></pre>
+
+<p>We can see that the lower url string have a query string attached at the back of the base url.</p>
+
+<p>and the query string is</p>
+
+<pre><code>?itemName=LEDTV&amp;itemPrice=3000
+</code></pre>
+
+<p>which is normally the part we parse the parameter into the webpage.</p>
+
+<h2>iOS</h2>
+
+<pre><code>- (id)initWithFrame:(CGRect)frame 
+    {
+      if (self = [super initWithFrame:frame]) {
+
+        // Set delegate in order to "shouldStartLoadWithRequest" to be called
+        self.delegate = self;
+
+        // Set non-opaque in order to make "body{background-color:transparent}" working!
+        self.opaque = NO;
+
+        // Instanciate JSON parser library
+        json = [ SBJSON new ];
+
+        // load our html file
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"webview-document" ofType:@"html"];
+        [self loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]]];
+
+    //      NSString *urlString = [[NSString alloc] initWithFormat:@"http://localhost:8888/webview-document.html?itemName=%@&amp;purchasePrice=%@",@"SamsumTV",@"4000"];
+    //      [self loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+      }
+      return self;
+    }
+
+
+    // This selector is called when something is loaded in our webview
+    // By something I don't mean anything but just "some" :
+    //  - main html document
+    //  - sub iframes document
+    //
+    // But all images, xmlhttprequest, css, ... files/requests doesn't generate such events :/
+    - (BOOL)webView:(UIWebView *)webView2 
+              shouldStartLoadWithRequest:(NSURLRequest *)request 
+              navigationType:(UIWebViewNavigationType)navigationType {
+
+        NSString *requestString = [[request URL] absoluteString];
+
+      NSLog(@"request : %@",requestString);
+
+      if ([requestString hasPrefix:@"sp://claimID/"]) {
+
+        NSArray *components = [requestString componentsSeparatedByString:@"sp://claimID/"];
+
+          NSString* callbackId = (NSString*)[components objectAtIndex:1] ;
+
+          [self saveClaimID:callbackId];
+
+        return NO;
+      }
+
+      return YES;
+    }
+
+    - (void)saveClaimID:(NSString *)claimID{
+        NSLog(@"\n\n\nClaimID is %@\n\n\n",claimID);
+    }
+</code></pre>
+
+<p>And need to setup webview delegate in the .h file</p>
+
+<pre><code>@interface MyWebView : UIWebView &lt;UIWebViewDelegate&gt; 
+</code></pre>
+
+<p>That&rsquo;s pretty much about it. For a complete and more robust version, please find the guys in the reference.</p>
+
+<h2>Reference</h2>
+
+<p>For source code architecture and the concept of javascript-iOS bridge, credit goes to this guy
+<a href="https://github.com/marcuswestin/WebViewJavascriptBridge">https://github.com/marcuswestin/WebViewJavascriptBridge</a></p>
+
+<p>for the web form button, credit goes to this guy
+<a href="http://www.javascripter.net/faq/querystr.htm">http://www.javascripter.net/faq/querystr.htm</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/11/18/alfred-to-blog-testing/">Alfred to Blog Testing</a></h1>
     
     
@@ -127,11 +362,19 @@ cd source/_posts/
 
 <p>Thought about to automatically open the blog through pip. Unfortunately I am quite new to the termianl programming, so if anywant to contribute, feel free to put a comment below.</p>
 
-<p>After the editing, just put another Alfred shot cut to fast deploy</p>
+<p>Deploy, so people can see it</p>
 
 <pre><code>cd Sites/repository/
 bundle exec rake generate
 bundle exec rake deploy
+</code></pre>
+
+<p>And lastly, push the code to github, so nothing is lost</p>
+
+<pre><code>cd Sites/repository/
+git add .
+git commit -m "{query}"
+git push origin source
 </code></pre>
 
 <p>Thats pretty much it.</p>
@@ -203,7 +446,7 @@ Like, seriously, a <em>LOT</em> of text</strong></p>
 
 <h4>Links and Email</h4>
 
-<p>An email <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#101;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;">&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#x40;&#x65;&#120;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#x63;&#x6f;&#109;</a> link.</p>
+<p>An email <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#x65;&#120;&#x61;&#109;&#112;&#108;&#101;&#64;&#101;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;">&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;</a> link.</p>
 
 <p>Simple inline link <a href="http://chenluois.com">http://chenluois.com</a>, another inline link <a href="http://smallerapp.com">Smaller</a>, one more inline link with title <a href="http://resizesafari.com" title="a Safari extension">Resize</a>.</p>
 
@@ -552,6 +795,14 @@ Above line ended with 2 spaces.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/11/20/site-out-of-sync/">Site Out of Sync</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/11/20/javascrip-ios-bridge/">Javascrip Ios Bridge</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/11/18/alfred-to-blog-testing/">Alfred to Blog Testing</a>

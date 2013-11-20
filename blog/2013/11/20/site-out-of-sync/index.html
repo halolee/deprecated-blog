@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Alfred to Blog Testing - My Octopress Blog</title>
+  <title>Site out of sync - My Octopress Blog</title>
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="To create a blog manually seems like a have a bit of tasks to accomplish. First need to navigate to the Git repository
-Second need to use rake &hellip;">
+  <meta name="description" content="Seems like the Alfred short cut has some issue now. Site is out of sync at this moment. It turns out that I missed the bundle exec rake deploy As the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@ Second need to use rake &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://halolee.github.io/blog/2013/11/18/alfred-to-blog-testing">
+  <link rel="canonical" href="http://halolee.github.io/blog/2013/11/20/site-out-of-sync">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
@@ -69,7 +68,7 @@ Second need to use rake &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Alfred to Blog Testing</h1>
+      <h1 class="entry-title">Site Out of Sync</h1>
     
     
       <p class="meta">
@@ -85,67 +84,23 @@ Second need to use rake &hellip;">
   
 
 
-<time datetime="2013-11-18T21:11:00+11:00" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
+<time datetime="2013-11-20T22:22:00+11:00" pubdate data-updated="true">Nov 20<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>To create a blog manually seems like a have a bit of tasks to accomplish.</p>
+<div class="entry-content"><p>Seems like the Alfred short cut has some issue now. Site is out of sync at this moment.</p>
 
-<ol>
-<li><p>First need to navigate to the Git repository</p></li>
-<li><p>Second need to use rake new_post to create a new post</p></li>
-<li><p>Then need to navigate to the source/_posts/ folder and locate the newly generated post</p></li>
-<li><p>Then need to open it with either mou or other software to edit it.</p></li>
-</ol>
+<p>It turns out that I missed the</p>
 
-
-<p>If only to do it once is OK. But the above steps will become a daily routain for user who want to really to blog everyday.</p>
-
-<p>Alfred comes to the rescure.</p>
-
-<p>With a powerpack activated Alfred, just goes to the Workflows and then create a new</p>
-
-<pre><code>Template -&gt; Essential -&gt; Keyword To Terminal Command
+<pre><code>bundle exec rake deploy
 </code></pre>
 
-<p>Then put the following to</p>
+<p>As the site need to be generate to the _deploy folder, then it can be pushed to the blog.</p>
 
-<pre><code>cd Sites/repository/
-bundle exec rake new_post["{query}"]
-cd source/_posts/
-</code></pre>
-
-<p>And assign a short cut to it. Please note the <strong>Sites/repository/</strong> need to be changed to the location of the repository.</p>
-
-<p>After that just click on the lasted created blog and start blogging.</p>
-
-<p>Thought about to automatically open the blog through pip. Unfortunately I am quite new to the termianl programming, so if anywant to contribute, feel free to put a comment below.</p>
-
-<p>Deploy, so people can see it</p>
-
-<pre><code>cd Sites/repository/
-bundle exec rake generate
-bundle exec rake deploy
-</code></pre>
-
-<p>And lastly, push the code to github, so nothing is lost</p>
-
-<pre><code>cd Sites/repository/
-git add .
-git commit -m "{query}"
-git push origin source
-</code></pre>
-
-<p>Thats pretty much it.</p>
-
-<p>So after today, the daily routin would be come</p>
-
-<p><strong>Call Alfred &ndash;> Shot cut to create post &ndash;> open post &ndash;> Short cut to deploy</strong></p>
-
-<p>Hope this post makes your life easier :D</p>
+<p>Its good that everything has fixed now.</p>
 </div>
 
 
@@ -168,12 +123,12 @@ git push origin source
   
 
 
-<time datetime="2013-11-18T21:11:00+11:00" pubdate data-updated="true">Nov 18<span>th</span>, 2013</time>
+<time datetime="2013-11-20T22:22:00+11:00" pubdate data-updated="true">Nov 20<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/alfred/'>Alfred</a>, <a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/productivity/'>productivity</a>
+    <a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/web/'>web</a>
   
 </span>
 
@@ -182,7 +137,7 @@ git push origin source
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://halolee.github.io/blog/2013/11/18/alfred-to-blog-testing/" data-via="" data-counturl="http://halolee.github.io/blog/2013/11/18/alfred-to-blog-testing/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://halolee.github.io/blog/2013/11/20/site-out-of-sync/" data-via="" data-counturl="http://halolee.github.io/blog/2013/11/20/site-out-of-sync/" >Tweet</a>
   
   
   
@@ -191,10 +146,8 @@ git push origin source
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/11/17/testing-markup-language/" title="Previous Post: Testing Markup Language">&laquo; Testing Markup Language</a>
+        <a class="basic-alignment left" href="/blog/2013/11/20/javascrip-ios-bridge/" title="Previous Post: javascrip ios bridge">&laquo; javascrip ios bridge</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/11/20/javascrip-ios-bridge/" title="Next Post: javascrip ios bridge">javascrip ios bridge &raquo;</a>
       
     </p>
   </footer>

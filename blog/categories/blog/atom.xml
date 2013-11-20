@@ -4,7 +4,7 @@
   <title><![CDATA[Category: blog | My Octopress Blog]]></title>
   <link href="http://halolee.github.io/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://halolee.github.io/"/>
-  <updated>2013-11-18T21:48:53+11:00</updated>
+  <updated>2013-11-20T22:25:56+11:00</updated>
   <id>http://halolee.github.io/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Site out of sync]]></title>
+    <link href="http://halolee.github.io/blog/2013/11/20/site-out-of-sync/"/>
+    <updated>2013-11-20T22:22:00+11:00</updated>
+    <id>http://halolee.github.io/blog/2013/11/20/site-out-of-sync</id>
+    <content type="html"><![CDATA[<p>Seems like the Alfred short cut has some issue now. Site is out of sync at this moment.</p>
+
+<p>It turns out that I missed the</p>
+
+<pre><code>bundle exec rake deploy
+</code></pre>
+
+<p>As the site need to be generate to the _deploy folder, then it can be pushed to the blog.</p>
+
+<p>Its good that everything has fixed now.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Alfred to Blog Testing]]></title>
@@ -50,11 +68,19 @@ cd source/_posts/
 
 <p>Thought about to automatically open the blog through pip. Unfortunately I am quite new to the termianl programming, so if anywant to contribute, feel free to put a comment below.</p>
 
-<p>After the editing, just put another Alfred shot cut to fast deploy</p>
+<p>Deploy, so people can see it</p>
 
 <pre><code>cd Sites/repository/
 bundle exec rake generate
 bundle exec rake deploy
+</code></pre>
+
+<p>And lastly, push the code to github, so nothing is lost</p>
+
+<pre><code>cd Sites/repository/
+git add .
+git commit -m "{query}"
+git push origin source
 </code></pre>
 
 <p>Thats pretty much it.</p>
