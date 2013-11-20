@@ -36,16 +36,19 @@ After that just click on the lasted created blog and start blogging.
 
 Thought about to automatically open the blog through pip. Unfortunately I am quite new to the termianl programming, so if anywant to contribute, feel free to put a comment below.
 
-After the editing, just put another Alfred shot cut to fast deploy
+Push the code to github, so nothing is lost
 
 	cd Sites/repository/
 	git add .
 	git commit -m "{query}"
-	git push origion source
+	git push origin source
 	
-~~bundle exec rake generate~~
-
-~~bundle exec rake deploy~~
+	
+And deploy, so people can see it
+	
+	cd Sites/repository/
+	bundle exec rake generate
+	bundle exec rake deploy
 	
 Thats pretty much it. 
 
